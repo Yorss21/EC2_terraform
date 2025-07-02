@@ -16,6 +16,7 @@ module "nginx_server_dev"{
     instance_type = "t3.medium"
     ami_id = "ami-061ad72bc140532fd"
     server_name = "nginx-server-dev"
+    region = "us-west-1"
 }
 
 module "nginx_server_qa"{
@@ -25,6 +26,7 @@ module "nginx_server_qa"{
     instance_type = "t3.large"
     ami_id = "ami-061ad72bc140532fd"
     server_name = "nginx-server-qa"
+    region = "us-west-1"
 }
 
 output "nginx_dev_public_ip" {

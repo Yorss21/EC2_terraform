@@ -22,3 +22,9 @@ variable "environment" {
   default     = "Staging"
   description = "The environment tag for the Nginx server instance."
 }
+
+variable "region" {
+  type        = string
+  default     = "us-west-1"
+  description = "The AWS region to deploy the Nginx server instance."
+}
