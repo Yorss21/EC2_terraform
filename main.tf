@@ -17,7 +17,11 @@ resource "aws_instance" "nginx-server" {
   key_name               = aws_key_pair.nginx_key.key_name
   vpc_security_group_ids = [aws_security_group.nginx_server_sg.id]
   tags = {
-    Name = "NginxServer"
+    Name        = "NginxServer"
+    Environment = "Staging"
+    Owner       = "Jorge C"
+    Team        = "DevOps"
+    Project     = "NginxDeployment"
   }
 }
 
@@ -44,11 +48,27 @@ resource "aws_security_group" "nginx_server_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"] # Allow all outbound traffic
   }
+
+  tags = {
+    Name        = "NginxServer-SG"
+    Environment = "Staging"
+    Owner       = "Jorge C"
+    Team        = "DevOps"
+    Project     = "NginxDeployment"
+  }
 }
 
 
 resource "aws_key_pair" "nginx_key" {
   key_name   = "nginx_key"
   public_key = file("~/Desktop/terraform_aws/nginx-server.key.pub") # Ensure you have a valid public key
+
+  tags = {
+    Name        = "NginxServer-SSHKey"
+    Environment = "Staging"
+    Owner       = "Jorge C"
+    Team        = "DevOps"
+    Project     = "NginxDeployment"
+  }
 }
 
