@@ -4,3 +4,5 @@
 *.tfstate.backup
 crash.log  
 id_rsa
+*.key
+*.key.pub
